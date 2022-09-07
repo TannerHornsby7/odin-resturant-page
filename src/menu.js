@@ -142,6 +142,4 @@ function menu() {
     return document.body.appendChild(appendChildren(contain, header(), mainpage("menu"), footer()));
 }
 
-menu();
-
 export default menu;

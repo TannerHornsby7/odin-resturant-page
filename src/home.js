@@ -35,38 +35,6 @@ function header(active) {
         default:
             home.classList.add('activetab');
     }
-    
-    // clear menu actives
-    const cb = function clearButtons() {
-        home.classList.remove('active');
-        menu.classList.remove('active');
-        contact.classList.remove('active');
-   }
-
-   // add navigation function
-    const addNavigation = function (button) {
-        button.addEventListener('click', ()=> {
-            //clear active status of all buttons
-            cb();
-            //clear current dom elements
-            while(document.body.firstChild) {
-                document.body.removeChild(document.body.firstChild);
-            }
-            //add current to active
-            button.classList.add('activetab');
-
-            //navigate to current tab's page
-
-            //pushPage(button.textContent); // builds given string's page
-        });
-    }
-
-    //adding navigation to the header menu
-    addNavigation(home);
-    addNavigation(menu);
-    addNavigation(contact);
-
-
 
     appendChildren(company, logo, title);
     appendChildren(navbar, home, menu, contact);
@@ -129,7 +97,5 @@ function home() {
     contain.style.backgroundImage = `url(${bg})`;
     return document.body.appendChild(appendChildren(createDiv("container"), header(), mainpage("home"), footer()));
 }
-
-// home();
 
 export default home;
