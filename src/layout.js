@@ -1,7 +1,9 @@
 import { createDiv, appendChildren } from './low-levels';
-// import contact from './contact';
-// import reserve from './reserve';
+// import home from './home'
 // import about from './about';
+// import reserve from './reserve';
+// import contact from './contact';
+
 import './style.scss';
 import wine from './assets/wine-bottle.png'
 
@@ -81,36 +83,6 @@ function header(active) {
     return appendChildren(box, company, navbar);
 }
 
-function mainpage(type) {
-    const mainpage = createDiv("mainpage");
-    const contentblock = createDiv(type)
-    const ctitle = createDiv("ctitle");
-    const tagline = createDiv("tagline");
-    const ordernow = createDiv("ordernow");
-    const toppart = createDiv("toppart");
-    
-    //setting inner html
-
-    ctitle.id = 'ctitle';
-    ctitle.innerHTML = "Sapori & Vini";
-    tagline.innerHTML = "The most authentic Italian experience in the south side.";
-    ordernow.innerHTML = "Order Now!"
-
-
-
-    ordernow.addEventListener('click', ()=> {
-        while(document.body.firstChild) {
-            document.body.removeChild(document.body.firstChild);
-        }
-    });
-
-    appendChildren(toppart, ctitle, tagline);
-    appendChildren(contentblock, toppart, ordernow);
-    mainpage.appendChild(contentblock);
-
-    return mainpage
-}
-
 function footer() {
     const box = createDiv("footer");
     const quote = document.createElement('h3');
@@ -133,6 +105,8 @@ function footer() {
     return appendChildren(box, quote, credits, navbar);
 }
 
-// document.body.appendChild(appendChildren(createDiv("container"), header(), mainpage("home"), footer()));
+function layout(c, h, m) {
+    return appendChildren(c, header(h), m, footer());
+}
 
-export { header, mainpage, footer };
+export default layout;

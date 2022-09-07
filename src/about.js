@@ -11,4 +11,3 @@
 // let menu = layout(container, menuBody, "menu");
 
 // export default menu;
-// document.body.appendChild(appendChildren(createDiv("container"), header(), mainpage("home"), footer()));
