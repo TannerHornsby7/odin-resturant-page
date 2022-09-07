@@ -7,7 +7,8 @@ module.exports = {
   entry: {
     lowlevels: './src/low-levels.js',
     layout: './src/layout.js',
-    menu: './src/menu.js'
+    menu: './src/menu.js',
+    index: './src/index.js'
   },
   devtool: 'inline-source-map',
   plugins: [

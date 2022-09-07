@@ -1,4 +1,7 @@
 import { createDiv, appendChildren } from './low-levels';
+// import contact from './contact';
+// import reserve from './reserve';
+// import about from './about';
 import './style.scss';
 import wine from './assets/wine-bottle.png'
 
