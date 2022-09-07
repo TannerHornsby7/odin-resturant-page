@@ -1,0 +1,200 @@
+@use 'formatting';
+
+// theme colors
+$lightcolor: whitesmoke;
+$darkcolor: darkslategrey;
+
+// setting theme
+@mixin theme($dark: true) {
+    @if($dark) {
+        color: $lightcolor;
+        background-color: $darkcolor;
+        box-shadow: 2px 2px 2px $lightcolor;
+    }
+    @else {
+        color: $darkcolor;
+        background-color: $lightcolor;
+        box-shadow: 2px 2px 2px $darkcolor;
+    }
+    transition: all .5s ease;
+}
+
+// setting layout style
+.container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    // background-image: url(./assets/bg.jpg);
+    background-size: cover;
+    grid-template-rows: 2fr 12fr 1fr;
+    place-items: center;
+
+    & > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+.header {
+    @include theme;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    max-height: 150px;
+
+    .company {
+        justify-self: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    img {
+        height: 70px;
+        justify-self: right;
+        align-self: center;
+    }
+
+    h1 {
+        padding-left: 2%;
+        justify-self: left;
+        align-self: center;
+    }
+
+    .navbar {
+        justify-self: right;
+        height: 100%;
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+        grid-auto-rows: 1fr;
+        row-gap: 10px;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            border: 2px solid $darkcolor;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        & >:hover {
+            @include theme(false);
+            cursor: pointer;
+        }
+    }
+}
+
+.footer {
+    @include theme;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-around;
+    height: 100%;
+
+
+    h3 {
+        padding: 5%;
+        font-style: italic;
+    }
+
+    .credits {
+        text-align: center;
+    }
+
+    .navbar {
+        justify-self: right;
+        padding-right: 5%;
+        grid-template-columns: 3 / 4;
+        height: 100%;
+        width: 75%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 5%;
+        font-size: 50%;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            border: 2px solid $darkcolor;
+        }
+
+        & >:hover {
+            @include theme(false);
+            cursor: pointer;
+        }
+    }
+}
+
+.activetab {
+    @include theme(false);
+}
+
+// setting mainpage style
+.mainpage {
+    @include theme(false);
+    min-height: 500px;
+    background: rgba(255, 255, 255, .3);
+    font-family: 'Lobster';
+
+    .home {
+        text-align: center;
+        height: 70%;
+        width: 65%;
+        background-color: rgba($lightcolor, .4);
+        padding: 5%;
+        border: 2px solid rgba($darkcolor, .4);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        & div div:first-child {
+            font-size: 100px;
+            font-weight: 900;
+            padding: 1%;
+        }
+
+        & div div:last-child {
+            margin-top: 2%;
+            color: rgba(black, .8);
+            font-size: 20px;
+        }
+
+        .ordernow {
+            justify-self: center;
+            border: 2px solid $darkcolor;
+            background-color: $lightcolor;
+            color: black;
+            display: grid;
+            place-items: center;
+            padding: 15px;
+            padding-left: 60px;
+            padding-right: 60px;
+            margin-bottom: 1%;
+
+
+            &:hover {
+                @include theme(dark);
+                cursor: pointer;
+            }
+        }
+        
+    }
+}
+
+// // setting menue style
+// .menu {
+//     @include theme(true); // light theme
+//     display: grid;
+//     grid-template-columns: 1fr 6fr;
+
+//     .tile {
+//         @include theme; //dark theme
+//     }
+// }
