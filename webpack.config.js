@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     lowlevels: './src/low-levels.js',
+    contact: './src/contact.js',
     home: './src/home.js',
     menu: './src/menu.js',
     index: './src/index.js',

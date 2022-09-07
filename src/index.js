@@ -1,13 +1,40 @@
 // handle tab switching here
 import { appendChildren, createDiv, createButton } from './low-levels';
 import wine from './assets/wine-bottle.png'
-import mbg from './assets/mbg.jpg';
-import bg from './assets/ab.jpg'
 import loadMenu from './menu';
 import loadHome from './home';
+import loadContact from './contact';
 
 const content = createDiv("content");
 document.body.appendChild(content);
+
+    // Add Navigation Function
+    const addNavigation = function (button) {
+        button.addEventListener('click', ()=> {
+            //clear current dom elements
+            console.log('clicked');
+            //navigate to current tab's page
+            switch(button.id) {
+                case 'home':
+                    setActiveButton(home);
+                    loadHome();
+                    break;
+                case 'menu':
+                    setActiveButton(menu);
+                    loadMenu();
+                    break;
+                case 'ordernow':
+                    setActiveButton(menu);
+                    loadMenu();
+                    break;
+                case 'contact':
+                    setActiveButton(contact);
+                    loadContact();
+                    break;
+                default:
+            }
+        });
+    }    
 
 
 function header() {
@@ -22,29 +49,6 @@ function header() {
     const contact = createButton("contact", true);
 
 
-    // Add Navigation Function
-    const addNavigation = function (button) {
-    button.addEventListener('click', ()=> {
-        //clear current dom elements
-        console.log('clicked');
-        //navigate to current tab's page
-        switch(button.id) {
-            case 'home':
-                setActiveButton(home);
-                loadHome();
-                break;
-            case 'menu':
-                setActiveButton(menu);
-                loadMenu();
-                break;
-            case 'ordernow':
-                setActiveButton(menu);
-                loadMenu();
-                break;
-            default:
-        }
-    });
-    }
 
     // setting title content
     title.textContent = "Sapori & Vini";
@@ -94,7 +98,7 @@ function footer() {
     // setting title content
     quote.textContent = "The Best in The West";
     credits.innerHTML = "Created by Tanner Hornsby"
-    contact.innerHTML = "(800)-775-2699"
+    contact.innerHTML = "(800)-622-2799"
 
     // setting menu content
 
@@ -111,6 +115,8 @@ function initializeWebsite() {
   
     setActiveButton(document.getElementById("home"));
     loadHome();
+    const ordernow = document.getElementById('ordernow')
+    addNavigation(ordernow);
 }
 
 initializeWebsite();
