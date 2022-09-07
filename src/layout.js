@@ -1,6 +1,6 @@
 import { createDiv, appendChildren } from './low-levels';
 // import home from './home'
-// import about from './about';
+import about from './about';
 // import reserve from './reserve';
 // import contact from './contact';
 
@@ -21,7 +21,7 @@ function header(active) {
     const navbar = createDiv("navbar");
     const home = createDiv("home", true);
     const menu = createDiv("menu", true);
-    const reserve = createDiv("reserve", true)
+    const about = createDiv("about", true)
     const contact = createDiv("contact", true);
 
     //setting default active menu item to active
@@ -32,8 +32,8 @@ function header(active) {
         case "menu":
             menu.classList.add('activetab');
             break;
-        case "reserve":
-            reserve.classList.add('activetab');
+        case "about":
+            about.classList.add('activetab');
             break;
         case "contact":
             contact.classList.add('activetab');
@@ -64,14 +64,14 @@ function header(active) {
 
             //navigate to current tab's page
 
-            //pushPage(button.textContent); // builds given string's page
+            pushPage(button.textContent); // builds given string's page
         });
     }
 
     //adding navigation to the header menu
     addNavigation(home);
     addNavigation(menu);
-    addNavigation(reserve);
+    addNavigation(about);
     addNavigation(contact);
 
 

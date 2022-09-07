@@ -1,6 +1,6 @@
 import home from './home'
 import layout from './layout'
-// import about from './about';
+import about from './about';
 // import reserve from './reserve';
 // import contact from './contact';
 // import layout from './layout';
@@ -10,3 +10,12 @@ import layout from './layout'
 
 document.body.appendChild(home);
 
+function pushPage(val) {
+    switch(val) {
+        case "ABOUT":
+            document.body.appendChild(about);
+            break;
+        default:
+            document.body.appendChild(home);
+    }
+}

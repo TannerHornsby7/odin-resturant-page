@@ -1,13 +1,14 @@
-// import { layout } from "./layout";
+// import { createDiv, appendChildren } from "./low-levels";
+// import layout from "./layout";
 // import bgpic from './assets/mbg.jpg';
 
 // const container = createDiv("container");
 // container.style.backgroundImage = `url(${bgpic})`;
 
-// function menuBody() {
-
+// function contactBody() {
+    
 // }
 
-// let menu = layout(container, menuBody, "menu");
+// let contact = layout(container, contactBody(), "contact");
 
-// export default menu;
+// export default contact;

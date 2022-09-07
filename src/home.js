@@ -34,6 +34,6 @@ function homeBody() {
     return mainpage
 }
 
-const home = layout(container, "home", homeBody());
+const home = layout(container, "home", homeBody);
 
 export default home;
