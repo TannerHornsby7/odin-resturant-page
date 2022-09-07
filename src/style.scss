@@ -21,10 +21,9 @@ $darkcolor: darkslategrey;
 
 // setting layout style
 .container {
-    height: 100%;
     width: 100%;
     display: grid;
-    // background-image: url(./assets/bg.jpg);
+    background-image: url(./assets/ab.jpg);
     background-size: cover;
     grid-template-rows: 2fr 12fr 1fr;
     place-items: center;
@@ -70,7 +69,11 @@ $darkcolor: darkslategrey;
         grid-auto-rows: 1fr;
         row-gap: 10px;
 
-        & > div {
+        * {
+        @include theme;
+        }
+
+        & > button {
             width: 100%;
             height: 100%;
             display: grid;
@@ -104,30 +107,9 @@ $darkcolor: darkslategrey;
         text-align: center;
     }
 
-    .navbar {
-        justify-self: right;
+    .contact {
         padding-right: 5%;
-        grid-template-columns: 3 / 4;
-        height: 100%;
-        width: 75%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        row-gap: 5%;
-        font-size: 50%;
-
-        & > div {
-            width: 100%;
-            height: 100%;
-            display: grid;
-            place-items: center;
-            border: 2px solid $darkcolor;
-        }
-
-        & >:hover {
-            @include theme(false);
-            cursor: pointer;
-        }
+        padding-left: 50%
     }
 }
 
@@ -144,6 +126,7 @@ $darkcolor: darkslategrey;
 
     .home {
         text-align: center;
+        min-height: fit-content;
         height: 70%;
         width: 65%;
         background-color: rgba($lightcolor, .4);
@@ -188,13 +171,31 @@ $darkcolor: darkslategrey;
     }
 }
 
-// // setting menue style
-// .menu {
-//     @include theme(true); // light theme
-//     display: grid;
-//     grid-template-columns: 1fr 6fr;
+.ctitle {
+    font-size: 100px;
+    text-align: center;
+}
 
-//     .tile {
-//         @include theme; //dark theme
-//     }
-// }
+// setting menue style
+.cards {
+    background-color: rgba(bisque, .2);
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow-y: scroll;
+    gap: 10px;
+    padding: 2%;
+
+    .card {
+        height: 200px;
+        grid-template-rows: 2fr 1fr 5fr 3fr;
+        text-align: center;
+
+        @include theme(false);
+
+        img {
+            height: 100px;
+        }
+    }
+
+}

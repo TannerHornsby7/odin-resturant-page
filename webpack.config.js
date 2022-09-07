@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     lowlevels: './src/low-levels.js',
-    layout: './src/layout.js',
+    home: './src/home.js',
     menu: './src/menu.js'
   },
   devtool: 'inline-source-map',

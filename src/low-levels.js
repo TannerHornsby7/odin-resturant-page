@@ -9,6 +9,16 @@ function createDiv(cname) {
     return element;
 }
 
+function createButton(bname) {
+    const element = document.createElement('button');
+    element.id = bname;
+
+    if(arguments[1] == true) {
+        element.textContent = bname.toUpperCase();
+    }
+    return element;
+}
+
 function appendChildren(parent) {
     //adding children to parent
     for (let i = 1; i < arguments.length; i++) {
@@ -18,7 +28,4 @@ function appendChildren(parent) {
     return parent;
 }
 
-
-
-
-export { createDiv, appendChildren};
+export { createDiv, appendChildren, createButton};
