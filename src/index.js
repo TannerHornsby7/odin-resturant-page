@@ -1,49 +1,119 @@
 // handle tab switching here
-import { appendChildren, createDiv } from './low-levels';
-import home from './home';
-import menu from './menu';
+import { appendChildren, createDiv, createButton } from './low-levels';
+import wine from './assets/wine-bottle.png'
+import mbg from './assets/mbg.jpg';
+import bg from './assets/ab.jpg'
+import loadMenu from './menu';
+import loadHome from './home';
 
-home();
+const content = createDiv("content");
+document.body.appendChild(content);
 
-const homebtn = document.querySelector('#home');
-const menubtn = document.querySelector('#menu');
 
-// clear menu actives
-const cb = function clearButtons() {
-    homebtn.classList.remove('active');
-    menubtn.classList.remove('active');
-    // contactbtn.classList.remove('active');
-}
+function header() {
+    const box = createDiv("header");
+    const title = document.createElement('h1');
+    const logo = new Image();
+    logo.src = wine;
 
-// add navigation function
-const addNavigation = function (button) {
+    // creating nav bar content
+    const home = createButton("home", true);
+    const menu = createButton("menu", true);
+    const contact = createButton("contact", true);
+
+
+    // Add Navigation Function
+    const addNavigation = function (button) {
     button.addEventListener('click', ()=> {
-        //clear active status of all buttons
-        cb();
         //clear current dom elements
-        while(document.body.firstChild) {
-            document.body.removeChild(document.body.firstChild);
-        }
-        //add current to active
-        button.classList.add('activetab');
-
+        console.log('clicked');
         //navigate to current tab's page
-        switch(button.textContent) {
-            case 'HOME':
-                home();
+        switch(button.id) {
+            case 'home':
+                setActiveButton(home);
+                loadHome();
                 break;
-            case 'MENU':
-                menu();
+            case 'menu':
+                setActiveButton(menu);
+                loadMenu();
+                break;
+            case 'ordernow':
+                setActiveButton(menu);
+                loadMenu();
                 break;
             default:
-                home();
         }
     });
-}
+    }
+
+    // setting title content
+    title.textContent = "Sapori & Vini";
+
+    // setting menu content
+    const company = createDiv("company");
+    const navbar = createDiv("navbar");
 
     //adding navigation to the header menu
-    addNavigation(homebtn);
-    addNavigation(menubtn);
+    addNavigation(home);
+    addNavigation(menu);
+    addNavigation(contact);
+
+    appendChildren(company, logo, title);
+    appendChildren(navbar, home, menu, contact);
+
+    // setting header content
+    return appendChildren(box, company, navbar);
+}
+
+function setActiveButton(button) {
+    const buttons = document.querySelectorAll(".navbar");
+    console.log(buttons);
+  
+    buttons.forEach((button) => {
+      if (button !== this) {
+        button.classList.remove("active");
+      }
+    });
+  
+    button.classList.add("active");
+}
+
+function createMain() {
+    const main = document.createElement('div');
+    main.classList.add("main");
+    main.setAttribute("id", "main");
+    return main;
+}
+
+function footer() {
+    const box = createDiv("footer");
+    const quote = document.createElement('h3');
+    const credits = createDiv("credits");
+    const contact = createDiv("contact");
+
+    // setting title content
+    quote.textContent = "The Best in The West";
+    credits.innerHTML = "Created by Tanner Hornsby"
+    contact.innerHTML = "(800)-775-2699"
+
+    // setting menu content
+
+    // setting header content
+    return appendChildren(box, quote, credits, contact);
+}
+
+function initializeWebsite() {
+    const context = document.querySelector(".content");
+  
+    context.appendChild(header());
+    context.appendChild(createMain());
+    context.appendChild(footer());
+  
+    setActiveButton(document.getElementById("home"));
+    loadHome();
+}
+
+initializeWebsite();
 
 
 

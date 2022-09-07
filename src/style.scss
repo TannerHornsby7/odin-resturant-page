@@ -19,27 +19,34 @@ $darkcolor: darkslategrey;
     transition: all .5s ease;
 }
 
-// setting layout style
-.container {
+//content is our maximum layout div
+.content {
+    height: 100%;
     width: 100%;
-    display: grid;
-    background-image: url(./assets/ab.jpg);
+    display: flex;
+    flex-direction: column;
+}
+
+
+// setting layout style
+.main {
+    display: flex;
+    background-color: rgba(0, 0, 0, .1);
     background-size: cover;
-    grid-template-rows: 2fr 12fr 1fr;
-    place-items: center;
 
     & > * {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100%;
     }
 }
+
 .header {
+    height: 100%;
     @include theme;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     max-height: 150px;
 
     .company {
@@ -95,7 +102,7 @@ $darkcolor: darkslategrey;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
-    height: 100%;
+    align-items: center;
 
 
     h3 {
@@ -149,7 +156,7 @@ $darkcolor: darkslategrey;
             font-size: 20px;
         }
 
-        .ordernow {
+        #ordernow {
             justify-self: center;
             border: 2px solid $darkcolor;
             background-color: $lightcolor;
@@ -171,6 +178,20 @@ $darkcolor: darkslategrey;
     }
 }
 
+.main {
+    min-height: 800px;
+    display: grid;
+    place-items: center;
+}
+
+.menu {
+    background: rgba(255, 255, 255, .5);
+    color: $darkcolor;
+    font-family: 'Lobster';
+    display: grid;
+    grid-template-rows: 1fr 4fr ;
+}
+
 .ctitle {
     font-size: 100px;
     text-align: center;
@@ -184,7 +205,6 @@ $darkcolor: darkslategrey;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     overflow-y: scroll;
     gap: 10px;
-    padding: 2%;
 
     .card {
         height: 200px;
